@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
+import AuthorDetail from "./AuthorDetail";
+import { Link, NavLink } from "react-router-dom";
+
 class BookRow extends Component {
+  state = {};
+
   render() {
     const book = this.props.book;
     return (
@@ -8,11 +13,15 @@ class BookRow extends Component {
         <td>{book.title}</td>
         <td>
           {book.authors.map(author => (
-            <div key={author.id}>{author.name}</div>
+            <div key={author.id}>
+              <NavLink to={`/authors/${author.id}`}>{author.name}</NavLink>
+            </div>
           ))}
         </td>
         <td>
-          <button className="btn" style={{ backgroundColor: book.color }} />
+          <NavLink to={`/books/${book.color}`}>
+            <button className="btn" style={{ backgroundColor: book.color }} />
+          </NavLink>
         </td>
       </tr>
     );

@@ -5,7 +5,7 @@ import BookRow from "./BookRow";
 class BookTable extends Component {
   render() {
     const bookRows = this.props.books.map(book => (
-      <BookRow key={book.id} book={book} />
+      <BookRow key={book.id} book={book} color={this.props.filterBooksColor} />
     ));
     return (
       <table className="mt-3 table">
